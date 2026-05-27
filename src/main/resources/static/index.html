@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antigravity Interview AI - Premium Prep System</title>
+    <!-- Google Fonts: Outfit (modern display) & Inter (clean UI) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome for robust dashboard iconography -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Main Style Sheet -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <!-- Ambient background glows -->
+    <div class="ambient-glow glow-1"></div>
+    <div class="ambient-glow glow-2"></div>
+    <div class="ambient-glow glow-3"></div>
+
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="brand-logo"><i class="fa-solid fa-brain-circuit"></i></div>
+                <div class="brand-text">
+                    <h2>Antigravity</h2>
+                    <span>Interview AI</span>
+                </div>
+            </div>
+            <nav class="nav-menu">
+                <a href="#" class="nav-item active" id="nav-dashboard"><i class="fa-solid fa-chart-line"></i> Dashboard</a>
+                <a href="#" class="nav-item" id="nav-mock"><i class="fa-solid fa-microphone-lines"></i> Mock Room</a>
+                <a href="#" class="nav-item" id="nav-custom"><i class="fa-solid fa-circle-plus"></i> Add Question</a>
+            </nav>
+            <div class="system-status">
+                <div class="status-indicator"></div>
+                <span>NLP Engine Local</span>
+            </div>
+        </aside>
+
+        <!-- Main Body -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="header">
+                <div class="header-welcome">
+                    <h1 id="page-title">Interview Dashboard</h1>
+                    <p id="page-subtitle">Welcome back, future engineer. Ready to practice?</p>
+                </div>
+                <div class="user-profile">
+                    <div class="metric-pill"><i class="fa-solid fa-bolt"></i> Daily Streak: 4 days</div>
+                    <div class="avatar"><i class="fa-solid fa-user-astronaut"></i></div>
+                </div>
+            </header>
+
+            <!-- ================= VIEW 1: DASHBOARD ================= -->
+            <section id="view-dashboard" class="content-view active">
+                <!-- Stats Overview Panel -->
+                <div class="stats-grid">
+                    <div class="stats-card">
+                        <div class="card-icon"><i class="fa-solid fa-gamepad"></i></div>
+                        <div class="card-data">
+                            <h3>Practice Sessions</h3>
+                            <p class="stat-number">12</p>
+                            <span class="stat-trend trend-up"><i class="fa-solid fa-arrow-up"></i> +2 this week</span>
+                        </div>
+                    </div>
+                    <div class="stats-card">
+                        <div class="card-icon"><i class="fa-solid fa-circle-check"></i></div>
+                        <div class="card-data">
+                            <h3>Average Score</h3>
+                            <p class="stat-number">78%</p>
+                            <span class="stat-trend trend-up"><i class="fa-solid fa-arrow-up"></i> +4% improvement</span>
+                        </div>
+                    </div>
+                    <div class="stats-card">
+                        <div class="card-icon"><i class="fa-solid fa-stopwatch"></i></div>
+                        <div class="card-data">
+                            <h3>Speech Fluency</h3>
+                            <p class="stat-number">Strong</p>
+                            <span class="stat-detail">Avg 2.1 fillers / min</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Categories Grid -->
+                <h2 class="section-title"><i class="fa-solid fa-compass"></i> Choose a Practice Track</h2>
+                <div class="tracks-grid">
+                    <div class="track-card hr-track" onclick="filterQuestions('HR')">
+                        <div class="track-bg-effect"></div>
+                        <div class="track-header">
+                            <i class="fa-solid fa-people-arrows track-icon"></i>
+                            <span class="track-pill">Behavioral</span>
+                        </div>
+                        <h3>HR & Leadership</h3>
+                        <p>Master the STAR method. Answer behavioral, conflict resolution, and teamwork questions with confidence.</p>
+                        <div class="track-footer">
+                            <span>2 Questions</span>
+                            <span class="action-link">Explore <i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                    <div class="track-card tech-track" onclick="filterQuestions('Technical')">
+                        <div class="track-bg-effect"></div>
+                        <div class="track-header">
+                            <i class="fa-solid fa-terminal track-icon"></i>
+                            <span class="track-pill">Technical</span>
+                        </div>
+                        <h3>Technical Engineering</h3>
+                        <p>Verify computer science concepts. Practice HashMap, SQL/NoSQL architectures, OOP singletons, and REST APIs.</p>
+                        <div class="track-footer">
+                            <span>4 Questions</span>
+                            <span class="action-link">Explore <i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Questions Repository -->
+                <div class="panel-section">
+                    <div class="panel-header">
+                        <h2 class="section-title"><i class="fa-solid fa-list-check"></i> Interview Question Bank</h2>
+                        <div class="filter-group">
+                            <button class="filter-btn active" id="btn-filter-all" onclick="filterQuestions('all')">All</button>
+                            <button class="filter-btn" id="btn-filter-hr" onclick="filterQuestions('HR')">Behavioral</button>
+                            <button class="filter-btn" id="btn-filter-tech" onclick="filterQuestions('Technical')">Technical</button>
+                        </div>
+                    </div>
+                    <div class="questions-table-wrapper">
+                        <table class="questions-table">
+                            <thead>
+                                <tr>
+                                    <th>Question Topic</th>
+                                    <th>Category</th>
+                                    <th>Type</th>
+                                    <th>Target Keywords</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="questions-list">
+                                <!-- Pre-populated dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ================= VIEW 2: MOCK INTERVIEW ROOM ================= -->
+            <section id="view-mock" class="content-view">
+                <div class="mock-grid">
+                    <!-- Left: Virtual Interviewer Visualizer -->
+                    <div class="mock-visualizer-card">
+                        <div class="interviewer-avatar-container">
+                            <div class="avatar-glow"></div>
+                            <div class="interviewer-sphere" id="visualizer-sphere">
+                                <i class="fa-solid fa-user-tie"></i>
+                            </div>
+                            <div class="sound-wave-container" id="sound-waves">
+                                <span class="wave-bar"></span>
+                                <span class="wave-bar"></span>
+                                <span class="wave-bar"></span>
+                                <span class="wave-bar"></span>
+                                <span class="wave-bar"></span>
+                                <span class="wave-bar"></span>
+                                <span class="wave-bar"></span>
+                            </div>
+                        </div>
+                        <h3 class="interviewer-status-text" id="interviewer-status">Click Speak Aloud to Hear Question</h3>
+                        <p class="interviewer-tip">Speak clearly at a steady pace. Keep filler words to a minimum.</p>
+                        <button class="action-btn secondary-btn" id="btn-read-question"><i class="fa-solid fa-volume-high"></i> Speak Aloud</button>
+                    </div>
+
+                    <!-- Right: Active Simulator Control -->
+                    <div class="mock-control-card">
+                        <div class="mock-card-header">
+                            <span class="category-tag" id="active-question-category">DATA STRUCTURES</span>
+                            <span class="type-tag" id="active-question-type">TECHNICAL</span>
+                        </div>
+                        <h2 class="active-question-text" id="active-question-text">Loading question text...</h2>
+                        
+                        <div class="answer-mode-tabs">
+                            <button class="mode-tab active" id="tab-speech"><i class="fa-solid fa-microphone"></i> Voice Input</button>
+                            <button class="mode-tab" id="tab-keyboard"><i class="fa-solid fa-keyboard"></i> Text Editor</button>
+                        </div>
+
+                        <!-- Voice Recorder Panel -->
+                        <div class="input-panel" id="panel-speech-input">
+                            <div class="speech-recording-area">
+                                <button class="record-btn-trigger" id="btn-record-toggle">
+                                    <div class="record-btn-pulse"></div>
+                                    <i class="fa-solid fa-microphone"></i>
+                                </button>
+                                <span class="record-status-label" id="record-status-label">Tap Mic to Start Answering</span>
+                            </div>
+                            <div class="live-transcript-box">
+                                <h4>Live Speech Transcript</h4>
+                                <div class="transcript-placeholder" id="speech-transcript-text">Your spoken answer will appear here in real-time...</div>
+                            </div>
+                        </div>
+
+                        <!-- Keyboard Input Panel (Hidden by default) -->
+                        <div class="input-panel hidden" id="panel-keyboard-input">
+                            <textarea class="answer-text-area" id="keyboard-answer-text" placeholder="Structure your answer carefully. Take your time, then submit for immediate NLP grading..."></textarea>
+                        </div>
+
+                        <div class="mock-footer-actions">
+                            <button class="action-btn border-btn" onclick="showView('dashboard')"><i class="fa-solid fa-xmark"></i> Cancel</button>
+                            <button class="action-btn success-btn" id="btn-submit-answer"><i class="fa-solid fa-wand-magic-sparkles"></i> Submit for Evaluation</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ================= VIEW 3: CUSTOM QUESTION FORM ================= -->
+            <section id="view-custom" class="content-view">
+                <div class="glass-form-card">
+                    <h2><i class="fa-solid fa-circle-plus"></i> Create Custom Practice Question</h2>
+                    <p class="form-desc">Define a new question, specify desired target keywords, and add an ideal answer baseline to expand the database instantly.</p>
+                    
+                    <form id="custom-question-form" onsubmit="saveCustomQuestion(event)">
+                        <div class="form-grid">
+                            <div class="form-group full-width">
+                                <label for="form-question-text">Interview Question Statement</label>
+                                <textarea id="form-question-text" required placeholder="e.g., Why do you want to work at our company? or Explain the difference between thread and process."></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="form-question-type">Question Category Type</label>
+                                <select id="form-question-type" required onchange="updateFormCategoryPlaceholder()">
+                                    <option value="HR">Behavioral (HR)</option>
+                                    <option value="Technical" selected>Technical</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="form-question-category">Specific Topic</label>
+                                <input type="text" id="form-question-category" required placeholder="e.g., Multithreading, OOP, Leadership, Conflict">
+                            </div>
+                            <div class="form-group full-width">
+                                <label for="form-question-keywords">Target Keywords (Comma Separated)</label>
+                                <input type="text" id="form-question-keywords" required placeholder="e.g., share memory, processes, isolated, thread overhead, operating system">
+                                <small class="input-tip">Our NLP Engine will check if the user incorporates these terms in their spoken transcript.</small>
+                            </div>
+                            <div class="form-group full-width">
+                                <label for="form-question-ideal">Ideal Response (Expert Standard)</label>
+                                <textarea id="form-question-ideal" required placeholder="Enter a comprehensive, highly articulate answer. The semantic matcher evaluates the user response similarity against this text..."></textarea>
+                            </div>
+                        </div>
+                        <div class="form-footer">
+                            <button type="button" class="action-btn border-btn" onclick="showView('dashboard')">Cancel</button>
+                            <button type="submit" class="action-btn primary-btn"><i class="fa-solid fa-floppy-disk"></i> Save to Question Bank</button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+
+            <!-- ================= VIEW 4: EVALUATION RESULTS REPORT CARD ================= -->
+            <section id="view-results" class="content-view">
+                <div class="results-layout">
+                    <!-- Top Summary Card: Circular Score & Primary Verdict -->
+                    <div class="results-hero-card">
+                        <div class="score-circle-container">
+                            <svg class="score-ring-svg" viewBox="0 0 120 120">
+                                <circle class="score-ring-bg" cx="60" cy="60" r="52"></circle>
+                                <circle class="score-ring-progress" id="results-ring-progress" cx="60" cy="60" r="52"></circle>
+                            </svg>
+                            <div class="score-value-box">
+                                <span class="score-percent" id="results-score-num">85</span>
+                                <span class="score-label">Confidence</span>
+                            </div>
+                        </div>
+                        <div class="verdict-content">
+                            <div class="results-badge" id="results-badge-verdict">Elite Performance</div>
+                            <h2 class="verdict-title">Evaluation Summary</h2>
+                            <p class="verdict-desc" id="results-feedback-summary">Evaluating your response...</p>
+                            <div class="hero-stats-row">
+                                <div class="hero-stat-pill"><i class="fa-solid fa-wave-square"></i> <span id="results-stat-tone">Confident</span></div>
+                                <div class="hero-stat-pill"><i class="fa-solid fa-heart-pulse"></i> <span id="results-stat-sentiment">Positive</span></div>
+                                <div class="hero-stat-pill"><i class="fa-solid fa-diagram-project"></i> <span id="results-stat-similarity">68% Similarity</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Metrics Breakdown Panel -->
+                    <div class="results-details-grid">
+                        <!-- Fluency & Filler Words -->
+                        <div class="results-card glass-panel">
+                            <h3><i class="fa-solid fa-microphone-slash animate-icon-red"></i> Fluency & Filler Analysis</h3>
+                            <div class="fillers-total-banner">
+                                <span class="filler-large-num" id="results-fillers-total">0</span>
+                                <div class="filler-banner-text">
+                                    <h4>Total Speech Fillers</h4>
+                                    <p id="results-filler-verdict-text">Flawless speaking! Excellent verbal control.</p>
+                                </div>
+                            </div>
+                            <div class="filler-detail-list" id="results-fillers-list">
+                                <!-- Populate filler word counts -->
+                            </div>
+                        </div>
+
+                        <!-- Technical Keyword Grid -->
+                        <div class="results-card glass-panel">
+                            <h3><i class="fa-solid fa-tags animate-icon-blue"></i> Key Terminology Coverage</h3>
+                            <p class="section-desc">Using correct industry terminology demonstrates expertise. Here is how your vocabulary aligned:</p>
+                            
+                            <div class="keyword-status-headers">
+                                <span class="keyword-status-lbl success"><i class="fa-solid fa-circle-check"></i> Matched</span>
+                                <span class="keyword-status-lbl warning"><i class="fa-solid fa-circle-xmark"></i> Suggested Additions</span>
+                            </div>
+                            <div class="keyword-cloud" id="results-keywords-cloud">
+                                <!-- Populated dynamically with tags -->
+                            </div>
+                        </div>
+
+                        <!-- AI Suggestions & Action Items -->
+                        <div class="results-card glass-panel full-width">
+                            <h3><i class="fa-solid fa-lightbulb animate-icon-gold"></i> AI Suggestions for Improvement</h3>
+                            <ul class="suggestions-list" id="results-suggestions-list">
+                                <!-- suggestions list -->
+                            </ul>
+                        </div>
+
+                        <!-- Side-by-Side Answers Comparison -->
+                        <div class="results-card glass-panel full-width">
+                            <h3><i class="fa-solid fa-right-left"></i> Answer Transcript Comparison</h3>
+                            <div class="comparison-grid">
+                                <div class="comparison-box user-answer-box">
+                                    <h4>Your Transcript</h4>
+                                    <p class="comparison-text" id="results-user-transcript">Your transcript text will load here...</p>
+                                </div>
+                                <div class="comparison-box ideal-answer-box">
+                                    <h4>Expert Reference Answer</h4>
+                                    <p class="comparison-text" id="results-ideal-text">Ideal answer text will load here...</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Footer actions -->
+                    <div class="results-footer-actions">
+                        <button class="action-btn border-btn" onclick="retryActiveQuestion()"><i class="fa-solid fa-arrows-rotate"></i> Retry Question</button>
+                        <button class="action-btn primary-btn" onclick="showView('dashboard')"><i class="fa-solid fa-table-columns"></i> Back to Dashboard</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Main Controller Logic -->
+    <script src="js/app.js"></script>
+</body>
+</html>
